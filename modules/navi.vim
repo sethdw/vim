@@ -12,6 +12,7 @@ set mouse=nc
 " buffer navigation
 nnoremap <C-h> :Buffers<CR>
 map <C-O> :Files<CR> 
+map <C-Y> :Files ~<CR>
 map <C-L> :Lines<CR> 
 
 " easymotion

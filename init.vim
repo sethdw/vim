@@ -1,3 +1,8 @@
+" TODO
+" 1) Sessions saved for each git branch in a repo, and automatically loaded
+" when switching
+" 2) Install coq
+
 " #### #### PLUGINS #### #### "
 call plug#begin('~/.config/nvim/plugged')
 
@@ -31,9 +36,9 @@ set autoindent
 set shiftwidth=4
 set autoread
 set wildmenu
-set relativenumber
 set cursorline
 set wildmenu
+set number
 
 " Indent Highlights
 let g:indentLine_char = '│'
@@ -64,19 +69,19 @@ let mapleader = "\\"
 " Double tap n to exit insert mode
 inoremap <nowait> nn <esc>
 
-" toggle 'make vim normal'
-nnoremap <leader>n :set relativenumber!<CR>
-
 " toggle line numbers (for copying)
-nnoremap <leader>c :set relativenumber!\|:set number!<CR>
+nnoremap <leader>c :set number!\|:GitGutterToggle\|:NeomakeToggle<CR>
 
 " Open/reload vimrc
 nnoremap <leader>r :so $MYVIMRC<CR>
 nnoremap <leader>v :e $MYVIMRC<CR>
 
 " F5 inserts dd/mm/yyyy
-nnoremap <F5> "=strftime("%d/%m/%Y")<CR>P
-inoremap <F5> <C-R>=strftime("%d/%m/%Y")<CR>
+nnoremap <F5> "=strftime("%d/%m/%y")<cr>p
+inoremap <f5> <c-r>=strftime("%d/%m/%Y")<CR>
+
+" # in insert mode comments lines
+vmap <C-#> :s/^/#<CR>
 
 autocmd BufEnter *.hcs :setlocal filetype=python
 autocmd BufEnter *.tccl :setlocal filetype=python
