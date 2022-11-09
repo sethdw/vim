@@ -6,6 +6,7 @@ nnoremap <space> <Nop>
 
 " Ctrl+F to fuzzy search all lines
 map <C-F> :Lines<CR> 
+
 " Mouse on normal mode
 set mouse=nc
 

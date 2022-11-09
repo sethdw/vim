@@ -19,11 +19,14 @@ Plug 'easymotion/vim-easymotion'
 Plug 'neomake/neomake'
 Plug 'tpope/vim-fugitive'
 Plug 'neovim/nvim-lspconfig'
+Plug 'wellle/targets.vim'
+Plug 'RRethy/vim-illuminate'
 
 " Pretty
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'EdenEast/nightfox.nvim'
 Plug 'ap/vim-css-color'
+Plug 'rakr/vim-one'
 
 call plug#end()
 
@@ -79,9 +82,6 @@ nnoremap <leader>v :e $MYVIMRC<CR>
 " F5 inserts dd/mm/yyyy
 nnoremap <F5> "=strftime("%d/%m/%y")<cr>p
 inoremap <f5> <c-r>=strftime("%d/%m/%Y")<CR>
-
-" # in insert mode comments lines
-vmap <C-#> :s/^/#<CR>
 
 autocmd BufEnter *.hcs :setlocal filetype=python
 autocmd BufEnter *.tccl :setlocal filetype=python
