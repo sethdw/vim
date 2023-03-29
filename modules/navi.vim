@@ -5,16 +5,14 @@ nnoremap <space> <Nop>
 " let navileader=<space>
 
 " Ctrl+F to fuzzy search all lines
-map <C-F> :Lines<CR> 
+map <C-F> :FzfLua lines<CR> 
 
 " Mouse on normal mode
 set mouse=nc
 
 " buffer navigation
-nnoremap <C-h> :Buffers<CR>
-map <C-O> :Files<CR> 
-map <C-Y> :Files ~<CR>
-map <C-L> :Lines<CR> 
+nnoremap <C-h> :FzfLua buffers<CR>
+map <C-O> :FzfLua files<CR> 
 
 " easymotion
 " Priority of keys goes left to right, unless it's a leader key then it's
@@ -27,3 +25,4 @@ map <space>t <Plug>(easymotion-bd-jk)
 map <space>w <Plug>(easymotion-bd-wl)
 map <space>k <Plug>(easymotion-k)
 map <space>j <Plug>(easymotion-j)
+

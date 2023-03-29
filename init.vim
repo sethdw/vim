@@ -11,9 +11,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 
 " Navigation
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
+Plug 'ibhagwan/fzf-lua'
 Plug 'easymotion/vim-easymotion'
+Plug 'echanovski/mini.surround'
 
 " Tools
 Plug 'neomake/neomake'
@@ -69,8 +69,8 @@ source $HOME/.config/nvim/modules/navi.vim
 " Set leader key to backslash
 let mapleader = "\\"
 
-" Double tap n to exit insert mode
-inoremap <nowait> nn <esc>
+" Double tap ; to exit insert mode
+inoremap <nowait> ;; <esc>
 
 " toggle line numbers (for copying)
 nnoremap <leader>c :set number!\|:GitGutterToggle\|:NeomakeToggle<CR>
@@ -82,6 +82,9 @@ nnoremap <leader>v :e $MYVIMRC<CR>
 " F5 inserts dd/mm/yyyy
 nnoremap <F5> "=strftime("%d/%m/%y")<cr>p
 inoremap <f5> <c-r>=strftime("%d/%m/%Y")<CR>
+
+" leader p inserts python pdb
+nnoremap <leader>p oimport pdb; pdb.set_trace()<ESC>
 
 autocmd BufEnter *.hcs :setlocal filetype=python
 autocmd BufEnter *.tccl :setlocal filetype=python
