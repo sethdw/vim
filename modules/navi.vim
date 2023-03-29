@@ -8,7 +8,14 @@ nnoremap <space> <Nop>
 map <C-F> :FzfLua lines<CR> 
 
 " Mouse on normal mode
+" Do with remapping to use smooth scrolling plugins
 set mouse=nc
+map <ScrollWheelUp> <C-Y>
+map <ScrollWheelDown> <C-E>
+
+" C-J & C-K to C-Y and C-E
+map <C-K> 6k \| <C-Y>
+map <C-J> 6j \| <C-E>
 
 " buffer navigation
 nnoremap <C-h> :FzfLua buffers<CR>
