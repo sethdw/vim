@@ -4,18 +4,20 @@ set number
 syntax enable
 colorscheme one
 
-" Tmux rubbish
+" Smooth scrolling
+lua require('neoscroll').setup()
+
+" Tmux rubbish for vim
 set t_8b=^[[48;2;%lu;%lu;%lum
 set t_8f=^[[38;2;%lu;%lu;%lum
 
+" Tmux rubbish for nvim (assumes tmux > 2.2)
 "Credit joshdick
-if (empty($TMUX))
-  if (has("nvim"))
+if (has("nvim"))
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  if (has("termguicolors"))
+endif
+if (has("termguicolors"))
     set termguicolors
-  endif
 endif
 
 " Tabs
