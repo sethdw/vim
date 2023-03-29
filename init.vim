@@ -24,9 +24,9 @@ Plug 'RRethy/vim-illuminate'
 
 " Pretty
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'EdenEast/nightfox.nvim'
 Plug 'ap/vim-css-color'
 Plug 'rakr/vim-one'
+Plug 'karb94/neoscroll.nvim'
 
 call plug#end()
 
