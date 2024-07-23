@@ -10,6 +10,9 @@ require('lazy').setup({
     {
       'karb94/neoscroll.nvim',
       lazy = false,
+      config = function()
+        require('neoscroll').setup()
+      end,
     },
 
     -- Status line
@@ -309,6 +312,42 @@ require('lazy').setup({
       'nvim-telescope/telescope-fzf-native.nvim',
       build = 'make',
     },
+
+    -- Markdown prettifier
+    {
+        'MeanderingProgrammer/markdown.nvim',
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
+        config = function()
+            require('render-markdown').setup({})
+        end,
+    },
+
+    -- inline git-blame and blame commit copying
+    {
+      'f-person/git-blame.nvim',
+      keys = {
+        {' b', '<cmd>GitBlameToggle<CR>', desc = 'Git [b]lame'},
+        {' bc', '<cmd>GitBlameCopySHA<CR>', desc = 'Git [b]lame [c]opy commit ID'},
+      },
+      config = function()
+        require('gitblame').setup({})
+
+        vim.g.gitblame_virtual_text_column = 0
+        vim.g.gitblame_highlight_group = 'NonText'
+        vim.g.gitblame_message_template = '      <committer> - <sha> - <summary>'
+      end,
+    },
+
+    -- per-cwd session saving
+    {
+      'rmagatti/auto-session',
+      config = function()
+        require("auto-session").setup({
+          auto_session_suppress_dirs = { '~/', '~/Projects', '~/Downloads', '/' },
+        })
+        vim.g.auto_session_root_dir = '/home/sethw/.config/nvim/sessions'
+      end,
+    },
   },
 
   -- Global options
@@ -332,8 +371,7 @@ vim.diagnostic.config {
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
-vim.keymap.set('n', '<leader>Q', vim.diagnostic.setqflist)
+
 
 -- require('neoscroll').setup()
 
@@ -389,6 +427,7 @@ vim.keymap.set('n', '\\c',
         require('gitsigns').toggle_signs()
         vim.cmd("TSToggle python")
         vim.cmd("set number!")
+        vim.cmd("GitBlameToggle")
     end
 )
 
