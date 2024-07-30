@@ -348,6 +348,19 @@ require('lazy').setup({
         vim.g.auto_session_root_dir = '/home/sethw/.config/nvim/sessions'
       end,
     },
+
+    -- copilot
+    {
+      'github/copilot.vim',
+      config = function()
+        vim.keymap.set('i', '<C-J>', 'copilot#Accept("\\<CR>")', {
+          expr = true,
+          replace_keycodes = false
+        })
+        vim.g.copilot_no_tab_map = true
+        vim.g.copilot_suggest = false
+      end,
+    },
   },
 
   -- Global options
