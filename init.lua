@@ -422,13 +422,12 @@ vim.o.wildmenu = true
 vim.o.cursorline = true
 vim.o.wildmenu = true
 vim.o.number = true
-vim.o.colorcolumn = 80
+--vim.o.colorcolumn = 80
 vim.o.lcs = "trail:⎵"
 vim.o.mouse = 'nc'
 
 -- Pretty
 vim.o.termguicolors = true
-vim.o.syntax = true
 vim.cmd.colorscheme 'lunaperche'
 
 -- ;; to exit insert
