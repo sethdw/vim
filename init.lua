@@ -386,31 +386,6 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 
 
--- require('neoscroll').setup()
-
--- Telescope
--- require('telescope').setup {
---   defaults = {
---     mappings = {
---       i = {
---         ['<C-u>'] = false,
---         ['<C-d>'] = false,
---       },
---     },
---   },
--- }
--- 
--- Enable telescope fzf native
---require('telescope').load_extension 'fzf'
-
--- Telescope buffer navigation
--- vim.keymap.set('n', '<C-h>', function() require('telescope.builtin').buffers { sort_lastused = true } end)
--- vim.keymap.set('n', '<C-o>', function() require('telescope.builtin').find_files { previewer = false } end)
-
--- Handy telescope searches
--- vim.keymap.set('n', '<leader>sb', function() require('telescope.builtin').current_buffer_fuzzy_find() end)
--- vim.keymap.set('n', '<leader>sh', function() require('telescope.builtin').help_tags() end)
-
 -- Tools
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
