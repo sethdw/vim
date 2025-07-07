@@ -10,9 +10,7 @@ require('lazy').setup({
     {
       'karb94/neoscroll.nvim',
       lazy = false,
-      config = function()
-        require('neoscroll').setup()
-      end,
+      opts = {} ;
     },
 
     -- Status line
@@ -317,9 +315,7 @@ require('lazy').setup({
     {
         'MeanderingProgrammer/markdown.nvim',
         dependencies = { 'nvim-treesitter/nvim-treesitter' },
-        config = function()
-            require('render-markdown').setup({})
-        end,
+        opts = {},
     },
 
     -- inline git-blame and blame commit copying
