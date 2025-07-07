@@ -358,6 +358,46 @@ require('lazy').setup({
         vim.g.copilot_suggest = false
       end,
     },
+    -- extend a/i textobjects
+    {
+      'echasnovski/mini.ai',
+      opts = {},
+    },
+    -- more surround support
+    {
+      'echasnovski/mini.surround',
+      opts = {},
+    },
+    -- remove trailing whitespace
+    {
+      'echasnovski/mini.trailspace',
+      opts = {},
+    },
+    -- keymaps helper
+    {
+      "folke/which-key.nvim",
+      event = "VeryLazy",
+      keys = {
+        {
+          "<leader>?",
+          function()
+            require("which-key").show({ global = false })
+          end,
+          desc = "Buffer Local Keymaps (which-key)",
+        },
+      },
+      requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+    },
+    -- be a nuisance when using bad habits
+    {
+      "m4xshen/hardtime.nvim",
+      lazy = false,
+      dependencies = { "MunifTanjim/nui.nvim" },
+      opts = {
+        disable_mouse = false,
+        restriction_mode = "hint",
+      },
+    },
   },
 
   -- Global options
