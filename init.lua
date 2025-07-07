@@ -451,7 +451,6 @@ vim.keymap.set('n', '\\c',
         require('gitsigns').toggle_signs()
         vim.cmd("TSToggle python")
         vim.cmd("set number!")
-        vim.cmd("GitBlameToggle")
     end
 )
 
