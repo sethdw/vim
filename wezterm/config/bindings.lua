@@ -75,10 +75,10 @@ local mouse_bindings = {
     },
 }
 
--- These copy and search modes attempt to emulate the behaviour of tmux's scrollback mode.
--- This means pressing /, searching, then pressing Enter allows searching through the scrollback buffer.
--- Pressing n and N will navigate through the search results without starting selection.
 local extend_copy_mode = {
+    -- These copy and search modes attempt to emulate the behaviour of tmux's scrollback mode.
+    -- This means pressing /, searching, then pressing Enter allows searching through the scrollback buffer.
+    -- Pressing n and N will navigate through the search results without starting selection.
     { key = '/', mods = 'NONE', action = act.Search { CaseInSensitiveString = '' } },
     { key = 'n',
         mods = 'NONE',
@@ -102,6 +102,21 @@ local extend_copy_mode = {
         act.CopyMode 'ClearSelectionMode',
         act.CopyMode 'Close',
     } },
+
+    -- Other copy-mode keybindings (bear in mind this extends the default copy-mode)
+    -- yank line
+    {
+        key = 'Y',
+        mods = 'SHIFT',
+        action = wezterm.action_callback(function(window, pane)
+            window:perform_action(act.CopyMode { SetSelectionMode = 'Line' }, pane)
+            local selected_text = window:get_selection_text_for_pane(pane)
+            -- optional: trim text here
+            window:copy_to_clipboard(selected_text)
+            window:perform_action(act.ClearSelection, pane)
+            window:perform_action(act.CopyMode 'Close', pane)
+        end),
+    },
 }
 local extend_search_mode = {
     {
