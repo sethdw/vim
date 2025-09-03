@@ -1,0 +1,54 @@
+[alias]
+    # Branch LOG
+    blog = log -p master..
+    # graphical log
+    olog = log --graph --oneline --all
+    # absolutely nuke the repo and all submodules
+    blat = !git reset --hard && \
+            git clean -fdx && \
+            git submodule update --init --recursive && \
+            git submodule foreach git reset --hard && \
+            git submodule foreach git clean -fdx
+    # search recent commits and make fixup commit
+    fixup = !git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup
+
+[core]
+	editor = nvim
+[user]
+	name = Seth Woolley
+	email = seth.woolley@arm.com
+
+# Lots of the justifications for these settings are from:
+# https://blog.gitbutler.com/how-git-core-devs-configure-git
+[column]
+        ui = auto
+[branch]
+        sort = -committerdate
+[tag]
+        sort = version:refname
+[diff]
+        algorithm = histogram
+        colorMoved = plain
+        mnemonicPrefix = true
+        renames = true
+[push]
+        default = simple
+        autoSetupRemote = true
+        followTags = true
+[fetch]
+        prune = true
+        pruneTags = true
+        all = true
+[help]
+        autocorrect = prompt
+[commit]
+        verbose = true
+[rerere]
+        enabled = true
+        autoupdate = true
+[rebase]
+        autoSquash = true
+        autoStash = true
+        updateRefs = true
+[pull]
+        rebase = true
