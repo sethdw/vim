@@ -12,6 +12,8 @@ local keys = {
     -- misc/useful --
     { key = '/',    mods = mod.SUPER,     action = act.ActivateCopyMode },
     { key = 'r',    mods = mod.SUPER_REV, action = act.ReloadConfiguration },
+    { key = '=',    mods = 'CTRL', action = wezterm.action.IncreaseFontSize },
+    { key = '-',    mods = 'CTRL', action = wezterm.action.DecreaseFontSize },
 
     -- copy/paste --
     { key = 'c',    mods = 'CTRL|SHIFT',  action = act.CopyTo('Clipboard') },
