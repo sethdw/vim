@@ -8,4 +8,7 @@ bindings.setup(config)
 local appearance = require('config.appearance')
 appearance.setup(config)
 
+local preferences = require('config.preferences')
+preferences.setup(config)
+
 return config

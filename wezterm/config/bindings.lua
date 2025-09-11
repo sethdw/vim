@@ -18,9 +18,14 @@ local keys = {
     { key = 'v',    mods = 'CTRL|SHIFT',  action = act.PasteFrom('Clipboard') },
 
     -- tabs --
-    -- tabs: spawn+close
-    { key = 't',    mods = mod.SUPER,     action = act.SpawnTab('DefaultDomain') },
-    { key = 'w',    mods = mod.SUPER,     action = act.CloseCurrentTab({ confirm = false }) },
+    -- Spawn new tabs in home directory
+    {
+        key = 't',
+        mods = mod.SUPER,
+        action = act.SpawnCommandInNewTab {
+            cwd=wezterm.home_dir
+        }
+    },
 
     -- tabs: navigation
     { key = '[',    mods = mod.SUPER,     action = act.ActivateTabRelative(-1) },
