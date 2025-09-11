@@ -60,6 +60,8 @@ banner "Starting setup"
 mkdir -p ~/bin
 mkdir -p ~/code
 ln -s ~/.config/dotfiles/.gitconfig ~/.gitconfig
+# TODO: do this progmatically
+warn "Make sure to make ~/.gituser with your user details!"
 
 banner "Installing nvim from appimage"
 wget -O ~/bin/nvim.appimage https://github.com/neovim/neovim/releases/download/$NEOVIM_VERSION/nvim-linux-arm64.appimage

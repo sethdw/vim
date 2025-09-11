@@ -11,12 +11,13 @@
             git submodule foreach git clean -fdx
     # search recent commits and make fixup commit
     fixup = !git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup
+    # Amend COMMIT
+    acommit = commit --amend --no-edit
 
 [core]
 	editor = nvim
-[user]
-	name = Seth Woolley
-	email = seth.woolley@arm.com
+[include]
+    path = ~/.gituser
 
 # Lots of the justifications for these settings are from:
 # https://blog.gitbutler.com/how-git-core-devs-configure-git
