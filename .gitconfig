@@ -1,19 +1,22 @@
 [alias]
     # Branch LOG
     blog = log -p master..
-    # graphical log
+    # Overview log
     olog = log --graph --oneline --all
     # absolutely nuke the repo and all submodules
-    blat = !git reset --hard && \
-            git clean -fdx && \
-            git submodule update --init --recursive && \
-            git submodule foreach git reset --hard && \
-            git submodule foreach git clean -fdx
+    rinse = !git reset --hard --recurse-submodule && \
+            git submodule sync --recursive && \
+            git submodule update --init --force --recursive && \
+            git clean -ffdx && \
+            git submodule foreach --recursive git clean -ffdx
     # search recent commits and make fixup commit
     fixup = !git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup
     # Amend COMMIT
     acommit = commit --amend --no-edit
 
+    # self explanatory
+    unstage = restore --staged
+    blat = reset --hard HEAD
 [core]
 	editor = nvim
 [include]

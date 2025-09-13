@@ -104,3 +104,5 @@ if [ -f "$HOME/.config/dotfiles/.bashrc" ]; then
     source "$HOME/.config/dotfiles/.bashrc"
 fi
 EOF
+
+warn "Remember to set git config user.email"
