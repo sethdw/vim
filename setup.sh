@@ -58,6 +58,7 @@ fi
 
 banner "Starting setup"
 mkdir -p ~/bin
+mkdir -p ~/scripts
 mkdir -p ~/code
 ln -s ~/.config/dotfiles/.gitconfig ~/.gitconfig
 # TODO: do this progmatically

@@ -50,6 +50,7 @@ COLOUR_GREEN='\[\e[92;1m\]'
 export PS1="\n[ ${COLOUR_YELLOW}\u${COLOUR_RED}@${COLOUR_GREEN}\$(host_name)${COLOUR_RESET} \w${COLOUR_BLUE}\$(git_branch)${COLOUR_RESET} ]\n${COLOUR_GREEN}\$${COLOUR_RESET} "
 
 export PATH=@$PATH:$(realpath ~/bin/)
+export PATH=@$PATH:$(realpath ~/scripts)
 
 # use fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
