@@ -400,6 +400,17 @@ require('lazy').setup({
         restriction_mode = "hint",
       },
     },
+    {
+      "olimorris/onedarkpro.nvim",
+      lazy=false,
+      priority=1000,
+      opts = {
+        highlights = {
+          -- Highlighting every variable is far far too colourful
+          ["@variable"] = { },
+        },
+      },
+    },
   },
 
   -- Global options
@@ -442,7 +453,7 @@ vim.o.mouse = 'nc'
 
 -- Pretty
 vim.o.termguicolors = true
-vim.cmd.colorscheme 'lunaperche'
+vim.cmd.colorscheme 'onedark_dark'
 
 -- ;; to exit insert
 vim.keymap.set('i', ';;', '<esc>', {noremap = true} )
