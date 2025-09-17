@@ -435,6 +435,7 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 
+vim.keymap.set('n', 'x', '"_x')
 
 -- Tools
 vim.o.tabstop = 4
@@ -454,9 +455,6 @@ vim.o.mouse = 'nc'
 -- Pretty
 vim.o.termguicolors = true
 vim.cmd.colorscheme 'onedark_dark'
-
--- ;; to exit insert
-vim.keymap.set('i', ';;', '<esc>', {noremap = true} )
 
 -- remove gutters for copying for commenting
 vim.keymap.set('n', '\\c',
