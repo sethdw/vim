@@ -19,6 +19,7 @@ alias l='ls -CF'
 
 alias resource='source ~/.bashrc'
 alias fkill="ps -ax | fzf | awk '{print $1}' | xargs kill"
+alias imgcat="wezterm imgcat"
 
 # PROMPT
 host_name() {
