@@ -26,13 +26,10 @@ return {
       {' b', '<cmd>GitBlameToggle<CR>', desc = 'Git [b]lame'},
       {' bc', '<cmd>GitBlameCopySHA<CR>', desc = 'Git [b]lame [c]opy commit ID'},
     },
-    config = function()
-      require('gitblame').setup({})
-
-      vim.g.gitblame_virtual_text_column = 0
-      vim.g.gitblame_highlight_group = 'NonText'
-      vim.g.gitblame_message_template = '      <committer> - <sha> - <summary>'
-    end,
+    opts = {
+      virtual_text_column = 0,
+      highlight_group = 'NonText',
+      message_template = '      <committer> - <sha> - <summary>',
+    }
   },
-
 }
